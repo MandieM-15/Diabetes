@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diabetes Prediction Tool</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #e9f5f9;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      .container {
+        width: 90%;
+        margin: auto;
+        overflow: hidden;
+      }
+      header {
+        position: relative;
+        background: #007acc;
+        color: #fff;
+        padding: 10px 20px;
+        min-height: 70px;
+        border-bottom: 3px solid #005f8a;
+        text-align: center;
+      }
+      header img {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 160px; /* Adjust size as needed */
+        width: auto;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2em;
+        display: inline-block;
+        position: relative;
+        z-index: 1; /* Ensure the header text is above the logo */
+      }
+      nav {
+        margin: 20px 0;
+        text-align: center;
+      }
+      nav a {
+        color: #007acc;
+        text-decoration: none;
+        padding: 10px 20px;
+        border: 2px solid #007acc;
+        border-radius: 4px;
+        margin: 0 10px;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      nav a:hover {
+        background-color: #007acc;
+        color: #fff;
+      }
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 70vh;
+        padding: 20px;
+      }
+      .form-container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 100%;
+      }
+      h2 {
+        margin-top: 0;
+        color: #007acc;
+        border-bottom: 2px solid #007acc;
+        padding-bottom: 5px;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
+      input[type="number"],
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      input[type="submit"] {
+        background-color: #007acc;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #005f8a;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: #007acc;
+        color: #fff;
+        border-top: 3px solid #005f8a;
+      }
+      .privacy-notice {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <img
+        src="C:\Users\bida22-111\OneDrive - Botswana Accountancy College\Documents\diabetes_website\images\C2CLOGO.png"
+        alt="Diabetes logo"
+        
+      />
+      <h1>Diabetes Prediction Tool</h1>
+    </header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="info.html">Diabetes Prediction tool</a>
+      <a href="visualization.html">Data Visualization</a>
+    </nav>
+    <div class="container">
+      <div class="content">
+        <div class="form-container">
+          <h2>Enter your details</h2>
+          <form id="predictionForm">
+            <label for="age">Age:</label>
+            <input
+              type="number"
+              id="age"
+              name="age"
+              placeholder="Enter your age"
+              required
+            />
+ 
+            <label for="bloodPressure">Blood Pressure (mm Hg):</label>
+            <input
+              type="number"
+              id="bloodPressure"
+              name="bloodPressure"
+              placeholder="Enter your blood pressure"
+              required
+            />
+ 
+            <label for="bmi">BMI:</label>
+            <input
+              type="number"
+              id="bmi"
+              name="bmi"
+              step="0.1"
+              placeholder="Enter your BMI"
+              required
+            />
+ 
+            <input type="submit" value="Predict" />
+          </form>
+          <div id="result" style="margin-top: 20px"></div>
+          <p class="privacy-notice">
+            <strong>Privacy Notice:</strong> Your personal data is collected
+            solely for the purpose of providing predictions based on the details
+            you provide. We do not store or share your data with third parties.
+            For more information, please refer to our privacy policy.
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>&copy; 2024 Diabetes Prediction Tool. All rights reserved.</p>
+    </footer>
+    <script>
+      document
+        .getElementById("predictionForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+ 
+          const age = document.getElementById("age").value;
+          const bloodPressure = document.getElementById("bloodPressure").value;
+          const bmi = document.getElementById("bmi").value;
+ 
+          // Simulating a prediction model response
+          // Normally, you would send this data to a server and get a prediction in response.
+          let prediction = "Unknown"; // Default response
+ 
+          if (age && bloodPressure && bmi) {
+            // Dummy logic for demonstration purposes
+            prediction =
+              bmi > 25 && bloodPressure > 80
+                ? "High likelihood of diabetes"
+                : "Low likelihood of diabetes";
+          }
+ 
+          document.getElementById(
+            "result"
+          ).innerText = `Prediction: ${prediction}`;
+        });
+    </script>
+  </body>
+</html>
